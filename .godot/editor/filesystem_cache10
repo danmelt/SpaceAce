@@ -1,6 +1,7 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1788857954
+::res://::1788859498
 icon.png::CompressedTexture2D::5186932906419557464::1788857733::1788857777::1::::<><><>0<>0<>9add14be54c4f9b6007e95c3b8c7cab4<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
+README.md::TextFile::-1::1788858734::0::1::::<><><>0<>0<><>::
 ::res://assets/::1788857734
 ::res://assets/backgrounds/::1788857777
 GalaxyUno.png::CompressedTexture2D::4311356801760756768::1788857733::1788857774::1::::<><><>0<>0<>595db60d19669a62cf89d602757658bf<>res://.godot/imported/GalaxyUno.png-07e9980ec597a46d023b38da3eeb634c.ctex::
@@ -95,8 +96,8 @@ ScoreManager.gd::GDScript::6897060380926740146::1788857734::0::1::::<>Node<><>0<
 SignalHub.gd::GDScript::9049526414642426814::1788857734::0::1::::<>Node<><>0<>0<><>::
 ::res://Resources/::1741874856
 ::res://Scenes/::1788857734
-::res://Scenes/Level/::1788857734
-Level.tscn::PackedScene::4451636438113727355::1788857734::0::1::::<><><>0<>0<><>::uid://cdf2n2vvpqpq3::::res://Scenes/LevelBg/LevelBg.tscn<>uid://cj6s025qtrnja::::res://Scenes/ShakeCam/ShakeCam.tscn<>uid://cs7twesq7bmwk::::res://Scenes/Player/Player.tscn<>uid://c8pkpg6y6ly4y::::res://Scenes/ObjectMaker/ObjectMaker.tscn<>uid://t0l7khnjnye0::::res://assets/sounds/loops/Mercury.wav
+::res://Scenes/Level/::1788858511
+Level.tscn::PackedScene::4451636438113727355::1788858511::0::1::::<><><>0<>0<><>::uid://cdf2n2vvpqpq3::::res://Scenes/LevelBg/LevelBg.tscn<>uid://cj6s025qtrnja::::res://Scenes/ShakeCam/ShakeCam.tscn<>uid://cs7twesq7bmwk::::res://Scenes/Player/Player.tscn<>uid://c8pkpg6y6ly4y::::res://Scenes/ObjectMaker/ObjectMaker.tscn<>uid://t0l7khnjnye0::::res://assets/sounds/loops/Mercury.wav
 ::res://Scenes/LevelBg/::1788857734
 LevelBg.tscn::PackedScene::4995393812742238664::1788857734::0::1::::<><><>0<>0<><>::uid://bfo2eu48t23pm::::res://assets/backgrounds/spr_stars01.png<>uid://dx6psa1o30grr::::res://assets/backgrounds/spr_stars02.png
 ::res://Scenes/Main/::1788857734
@@ -107,11 +108,11 @@ ObjectMaker.tscn::PackedScene::7120673194749780954::1788857734::0::1::::<><><>0<
 ::res://Scenes/OutOfTime/::1788857734
 OutOfTime.gd::GDScript::591131529277221797::1788857734::0::1::::<>Node<><>0<>0<><>::
 OutOfTime.tscn::PackedScene::1157580691839031635::1788857734::0::1::::<><><>0<>0<><>::uid://4jxtnvh4p1ux::::res://Scenes/OutOfTime/OutOfTime.gd
-::res://Scenes/Player/::1788857734
-Player.gd::GDScript::3603463930674684517::1788857734::0::1::::Player<>Area2D<><>0<>0<><>::
-Player.tscn::PackedScene::6103493789998831918::1788857734::0::1::::<><><>0<>0<><>::uid://brlsr3jugk3d6::::res://Scenes/Player/Player.gd<>uid://c6t1rviea0cgn::::res://assets/ships/ships_human_1.png
-::res://Scenes/ShakeCam/::1788857734
-ShakeCam.gd::GDScript::8471399203128622288::1788857734::0::1::::<>Camera2D<><>0<>0<><>::
+::res://Scenes/Player/::1788859436
+Player.gd::GDScript::3603463930674684517::1788859436::0::1::::Player<>Area2D<><>0<>0<><>::
+Player.tscn::PackedScene::6103493789998831918::1788859436::0::1::::<><><>0<>0<><>::uid://brlsr3jugk3d6::::res://Scenes/Player/Player.gd<>uid://c6t1rviea0cgn::::res://assets/ships/ships_human_1.png
+::res://Scenes/ShakeCam/::1788859436
+ShakeCam.gd::GDScript::8471399203128622288::1788859436::0::1::::<>Camera2D<><>0<>0<><>::
 ShakeCam.tscn::PackedScene::5469675686449392414::1788857734::0::1::::<><><>0<>0<><>::uid://dsxuybrlutwwu::::res://Scenes/ShakeCam/ShakeCam.gd
 ::res://Scenes/Sun/::1788857734
 Sun.tscn::PackedScene::1297513213062137384::1788857734::0::1::::<><><>0<>0<><>::uid://cf7jkce15l0wb::::res://assets/misc/sun.png
