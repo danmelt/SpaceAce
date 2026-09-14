@@ -76,3 +76,8 @@ func _on_area_entered(area: Area2D) -> void:
 				SignalHub.emit_on_health_pickup(PowerUp.HEALTH)
 	elif area is Projectile:
 		SignalHub.emit_on_player_hit(area.get_damage())
+	elif area.get_parent() is EnemyBase:
+		SignalHub.emit_on_player_hit(area.get_parent().crash_damage)
+
+
+		

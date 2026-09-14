@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://t0l7khnjnye0" path="res://assets/sounds/loops/Mercury.wav" id="5_ksici"]
 [ext_resource type="PackedScene" uid="uid://qd285w7d5aeh" path="res://Scenes/UI/GameUi.tscn" id="7_8gphe"]
 [ext_resource type="PackedScene" uid="uid://cwrliqstoi716" path="res://Scenes/Enemies/Saucer.tscn" id="7_t3e81"]
+[ext_resource type="PackedScene" uid="uid://m4syv1anknb6" path="res://Scenes/GameOverUi/GameOverUi.tscn" id="8_lvwdj"]
 
 [sub_resource type="Curve2D" id="Curve2D_23euh"]
 _data = {
@@ -35,6 +36,8 @@ autoplay = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1822871648]
 
 [node name="GameUi" parent="CanvasLayer" unique_id=1985062834 instance=ExtResource("7_8gphe")]
+
+[node name="GameOverUi" parent="CanvasLayer" unique_id=1130023211 instance=ExtResource("8_lvwdj")]
 
 [node name="Path2D3" type="Path2D" parent="." unique_id=1237503836]
 position = Vector2(93, 100)
