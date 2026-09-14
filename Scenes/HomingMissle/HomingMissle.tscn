@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bs1mdfve436bd"]
+
+[ext_resource type="PackedScene" uid="uid://bosik8on4sbti" path="res://Scenes/Projectile/Projectile.tscn" id="1_ay3rm"]
+[ext_resource type="Texture2D" uid="uid://bqywi64wvxcqj" path="res://assets/lasers/spaceMissiles_040.png" id="2_2onfd"]
+[ext_resource type="Script" uid="uid://dtdvrxeo87e4j" path="res://Scenes/HomingMissle/HomingMissle.gd" id="2_qxqym"]
+[ext_resource type="Texture2D" uid="uid://b0hlsmrvemel0" path="res://assets/misc/ParticleDot.png" id="3_a3uk4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rdoul"]
+radius = 6.0
+height = 34.0
+
+[sub_resource type="Curve" id="Curve_kw568"]
+_data = [Vector2(0, 0.5126705), 0.0, 0.0, 0, 0, Vector2(0.15175098, 1), 0.0, 0.0, 0, 0, Vector2(0.9974059, 0.0097465515), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_23euh"]
+offsets = PackedFloat32Array(0.17598909, 0.39427012)
+colors = PackedColorArray(0.81960785, 0.03529412, 0.17254902, 1, 0.7294118, 0.7019608, 0, 1)
+
+[node name="HomingMissle" unique_id=477940532 instance=ExtResource("1_ay3rm")]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("2_qxqym")
+damage = 15
+
+[node name="Sprite2D" parent="." index="0" unique_id=1733444489]
+rotation = 1.5707964
+texture = ExtResource("2_2onfd")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=973207337]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_rdoul")
+
+[node name="OutOfTime" parent="." index="2" unique_id=1162006570]
+life_s = 200.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." index="4" unique_id=700035226]
+position = Vector2(-12, 0)
+rotation = 1.5707964
+amount = 32
+texture = ExtResource("3_a3uk4")
+lifetime = 0.3
+explosiveness = 0.1
+lifetime_randomness = 0.1
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(0, 1)
+spread = 5.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 140.0
+initial_velocity_max = 180.0
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_kw568")
+color = Color(1, 0.85490197, 0.023529412, 1)
+color_ramp = SubResource("Gradient_23euh")

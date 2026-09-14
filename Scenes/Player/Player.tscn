@@ -2,19 +2,91 @@
 
 [ext_resource type="Script" uid="uid://brlsr3jugk3d6" path="res://Scenes/Player/Player.gd" id="1_s0eop"]
 [ext_resource type="Texture2D" uid="uid://c6t1rviea0cgn" path="res://assets/ships/ships_human_1.png" id="2_ft8w5"]
+[ext_resource type="PackedScene" uid="uid://cidsi3wywmbhq" path="res://Scenes/Shield/Shield.tscn" id="3_h54ih"]
+[ext_resource type="AudioStream" uid="uid://boct87hp6wlp1" path="res://assets/sounds/powerup/health_16.wav" id="4_ude3g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ude3g"]
-radius = 12.0
+radius = 16.492422
+
+[sub_resource type="Animation" id="Animation_ude3g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_jmcll"]
+resource_name = "fly"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_4wape"]
+resource_name = "turn"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4wape"]
+_data = {
+&"RESET": SubResource("Animation_ude3g"),
+&"fly": SubResource("Animation_jmcll"),
+&"turn": SubResource("Animation_4wape")
+}
 
 [node name="Player" type="Area2D" unique_id=305096744]
-collision_mask = 0
+collision_mask = 28
 script = ExtResource("1_s0eop")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1456420533]
 z_index = 1
 texture = ExtResource("2_ft8w5")
 hframes = 4
-frame = 2
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1142980617]
 shape = SubResource("CircleShape2D_ude3g")
+
+[node name="Shield" parent="." unique_id=836740271 instance=ExtResource("3_h54ih")]
+position = Vector2(-1, 0)
+
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=110992113]
+stream = ExtResource("4_ude3g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=413121423]
+libraries/ = SubResource("AnimationLibrary_4wape")
+autoplay = &"fly"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

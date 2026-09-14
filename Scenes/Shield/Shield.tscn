@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cidsi3wywmbhq"]
+
+[ext_resource type="Script" uid="uid://u52a3sqqacuy" path="res://Scenes/Shield/Shield.gd" id="1_nlrep"]
+[ext_resource type="Texture2D" uid="uid://cxbmrtydw8d4e" path="res://assets/shield/spr_shield_small.png" id="1_sngbc"]
+[ext_resource type="AudioStream" uid="uid://c13f6780cid8r" path="res://assets/sounds/powerup/shield_18.wav" id="2_djkv3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kw568"]
+radius = 32.01562
+
+[sub_resource type="Animation" id="Animation_hijiv"]
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_l7k22"]
+resource_name = "hit"
+length = 0.19999999999999998
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10030255, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bjhii"]
+_data = {
+&"RESET": SubResource("Animation_hijiv"),
+&"hit": SubResource("Animation_l7k22")
+}
+
+[node name="Shield" type="Area2D" unique_id=836740271]
+collision_layer = 32
+collision_mask = 4
+script = ExtResource("1_nlrep")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=17807575]
+rotation = -1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_sngbc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=196198381]
+shape = SubResource("CircleShape2D_kw568")
+
+[node name="Timer" type="Timer" parent="." unique_id=1311285705]
+wait_time = 10.0
+one_shot = true
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="." unique_id=286644395]
+stream = ExtResource("2_djkv3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1842307807]
+root_node = NodePath("../Sound")
+libraries/ = SubResource("AnimationLibrary_bjhii")
+autoplay = &"hit"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
